@@ -22,7 +22,7 @@ This is only necessary for the example. We use `conda` for this.
 conda install -c conda-forge gdal
 ```
 
-Running make:
+## Running make:
 
 ```bash
 make
@@ -60,9 +60,12 @@ cd ..
 ### Create viz
 
 ```bash
-# GDIR=./makefile2graph
+# GDIR=./makefile2graph 
+# or make sure make2graph is in the path
 make -Bnd | ${GDIR}/make2graph | dot -Tpng -o make_file_viz.png
 ```
+
+use the `create_make_viz.sh` script to genereate the visualization
 
 ## More about the make file
 
@@ -74,7 +77,7 @@ This is the data flow:
 - The each dependency has a partin the make file. The first line that describes the dependency and the following line (indedented with `tab`) is code that has to be generated.
 
 - You can use expand in many way:
-  - Using more dependencies,
+  - Using more dependencies (now it is one input and one output file),
   - Variables
   - [Automatic variables](https://www.gnu.org/software/make/manual/make.html#Automatic-Variables) `$@`, `$<` (the cryptic part)
 
@@ -87,5 +90,9 @@ This is the data flow:
 - [Automation and Make](http://swcarpentry.github.io/make-novice/)
 - [Make specific for R: was called drake ](https://github.com/ropensci/drake), which is now: [Targets](https://docs.ropensci.org/targets/). It has alow nice visualizations
 
-https://www.oreilly.com/openbook/make3/book/index.csp
-https://swcarpentry.github.io/make-novice/01-intro/index.html
+- https://www.oreilly.com/openbook/make3/book/index.csp
+- https://swcarpentry.github.io/make-novice/01-intro/index.html
+
+
+# ToDo
+- [ ] check how this will work for an actual data science project (where data and source code files change) 
